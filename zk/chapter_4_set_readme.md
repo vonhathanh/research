@@ -26,3 +26,10 @@ I would pick (1,3), (2, 6), (3, 9), (4, 12), it encodes y = x*3
 - For example, with the Cartesian product of AxB before, we can pick any subset like: {(1, y), (2, x), (3, z)}
 - Mathematicians rarely concern with computability (but we as programmer do). A function is just a mapping between sets
 How that function is computed, it not a concert of mathematicians
+- Exercise 7: Define a mapping (function) from integers n ∈ 1,2,3,4,5,6 to the set {even, odd}
+![img_2.png](img_2.png)
+- Excercise 8: ![img_3.png](img_3.png)
+- Excercise 9: f = {(a, b): a in N and b in Z+}. It's possible to create a mapping between integers and rational numbers.
+We just need to take the Cartesian product of integer numbers with itself, the result would be a series of tuples like this:
+  (1, 1), (1, 2)..., (2, 1), (2, 2)... This is the basic form of all rational numbers. (note, b != 0)
+- When defining a function with a Cartesian product, the same domain element can't map to two different co-domain elements
