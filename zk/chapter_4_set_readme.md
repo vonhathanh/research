@@ -33,3 +33,19 @@ How that function is computed, it not a concert of mathematicians
 We just need to take the Cartesian product of integer numbers with itself, the result would be a series of tuples like this:
   (1, 1), (1, 2)..., (2, 1), (2, 2)... This is the basic form of all rational numbers. (note, b != 0)
 - When defining a function with a Cartesian product, the same domain element can't map to two different co-domain elements
+- Surjective: All elements in the codomain have atleast one preimage, if an element in the codomain doesn't have preimage, that function is not surjective
+- Injective: Elements in the codomain have atmost one preimage. If an elemement doesn't have preimage, it's okay. If two
+or more elements in the domain map to the same element, it's not injective
+- Bijective: a function that is bot surjective and injective
+- Exercise 10: A = {1, 2, 3}, B = {x, y, z}, define f(A) -> B that is not injective and surjective
+Not surjective -> an element in B doesn't have preimage, we choose z to be that element
+Not injective -> two or more elements in the domain map to the same codomain, we choose: (1, x), (2, x)
+So our set/function is: {(1, x), (2, x), (3, y)}
+- Set relation: if we take a subset of AxB then we say an element a from A is related to an element b from B if
+there is an ordered pair (a, b) in the subset
+- Binary operator: a function from AxA -> A, we take every possible pair from AxA and map it to A
+- Exercise 11: subset of ordered pairs that defines a*b mod 3 ![img_4.png](img_4.png)
+- A closed binary operator takes any two elements of a set, and output another element from the same set. 
+- Division over integers is not closed because a/b sometimes produce rational number
+- When it comes to binary operators, we are not allowed to take a subset of A ⨉ A before mapping that to A. 
+Binary operators must accept all members of group A as its inputs
