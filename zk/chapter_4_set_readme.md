@@ -48,4 +48,22 @@ there is an ordered pair (a, b) in the subset
 - A closed binary operator takes any two elements of a set, and output another element from the same set. 
 - Division over integers is not closed because a/b sometimes produce rational number
 - When it comes to binary operators, we are not allowed to take a subset of A ⨉ A before mapping that to A. 
-Binary operators must accept all members of group A as its inputs
+Binary operators must accept all members of group A as its inputs and each pair from AxA must map to exactly one A
+- Magma: a set with a closed binary operator
+- Semigroup: a magma where the binary operator must be associative (A op B) op C = A op (B op C)
+- Exercise 13: (foo + bar) + baz = foobarbaz = foo + (bar + baz)
+- Exercise 14: example of magma: set of real number under addition, (5 - 4) - 3 != 5 - (3 -2), example of semigroup:
+set of natural number under addition
+- Monoid: a semigroup with identity element. Identity element is an element when do the binary operator with another
+element a, you get a: a + I = a. For example, addition over integers is monoid when you include 0
+- Excercise 15: Let our binary operator be the function min(a,b) over integers. Is this a magma, semigroup, or monoid?
+It's a magma because it returns integer. It's also a semigroup, because it's associative, min(min(a, b), c) = min(a, min(b, c)).
+It's not a moniod since there is no identity element. If we include the positive infinity, then it's a monoid
+- Group: A monoid where every element has an inverse, inverse means when you take the binary operator between an element
+and it's inverse, you get the identity element. For example: inverse of 5 is -5 because 5+-5 = 0 (0 is identity element)
+- Exercise 16: strings under concatenation can't be a group? they don't have an inverse element for any member in the set
+Polynomials under addition satisfy the property of group: 
+  - pA + pB = pC (closed)
+  - (pa + pB) + pC = pA + (pB + pC): associative
+  - Identity element: zero polynomial
+  - Inverse: multiply -1 with original polynomial and we get it's inverse
