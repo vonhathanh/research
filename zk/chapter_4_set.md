@@ -61,6 +61,7 @@ It's a magma because it returns integer. It's also a semigroup, because it's ass
 It's not a moniod since there is no identity element. If we include the positive infinity, then it's a monoid
 - Group: A monoid where every element has an inverse, inverse means when you take the binary operator between an element
 and it's inverse, you get the identity element. For example: inverse of 5 is -5 because 5+-5 = 0 (0 is identity element)
+- Abelian group: a group that has an additional requirement that the binary operator also commutative
 - Exercise 16: strings under concatenation can't be a group? they don't have an inverse element for any member in the set
 Polynomials under addition satisfy the property of group: 
   - pA + pB = pC (closed)
