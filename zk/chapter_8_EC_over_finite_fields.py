@@ -59,3 +59,6 @@ class TestLibnum(unittest.TestCase):
         x2, y2 = (4, 10)
         result = add_points(x1, y1, x2, y2, 11)
         print(result)
+        # add two points that share the same x
+        result = add_points(4, 1, 4, 10, 11)
+        print(result)
