@@ -21,7 +21,10 @@
   - Verifier: Multiply G1 by 15 and verify A + B == 15G1
   - Verifier doesn't know about x and y, but it still can verify x+y == 15
 - Excerise: prove knowledge of a solution to a system of linear equations
-- let's say our linear system of equations is: ax + by = c, dx + ey = f
-- add equation (1) and (2) we got (a+d)x + (b+e)y = c+f
-- Denote a+d = A, b+e = B, c+f = C we got Ax + By = C
-- We'll just need to multiply Ax by G1, By by G1 and C by G1 and give it to prover
+- let's say our linear system of equations has the form of Ax + By = C. We assume both verifier and prover know
+  the coefficients A, B, C.
+  - Claim: we know x, y such that Ax + By = C
+  - Proof: multiply x by A and y by B and give those to verifier as A' and B'
+  - Verifier: Multiply G1 by A' and B' and verify G1(A' + B') = G1C
+- Security assumptions: we are assuming that a point created by multiply(G1, x) can't be brute force by an attacker
+  to find the original value x from a point (x, y)
