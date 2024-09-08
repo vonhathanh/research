@@ -5,6 +5,8 @@ from libnum import has_sqrtmod_prime_power, has_sqrtmod_prime_power
 
 
 def double(x, y, a, p):
+    if y == 0:
+        return (None, None)
     lambd = (((3 * x**2) % p) * pow(2 * y, -1, p)) % p
     newx = (lambd**2 - 2 * x) % p
     newy = (-lambd * newx + lambd * x - y) % p
@@ -61,4 +63,7 @@ class TestLibnum(unittest.TestCase):
         print(result)
         # add two points that share the same x
         result = add_points(4, 1, 4, 10, 11)
+        print(result)
+        # add lonely point with itself -> error: base is not invertible
+        result = add_points(2, 0, 2, 0, 11)
         print(result)
