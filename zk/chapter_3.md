@@ -1,5 +1,5 @@
 - Congruent: two numbers are called congruent if they share the same remainder when dividing by p
-  - Example: if p = 7, then 12 is congruent to 5 because 5mod7 = 12mod7 = 5
+  - Example: if p = 7, then 12 is congruent to 5 under p because 5mod7 = 12mod7 = 5
 
 - Order of the field: number of elements in the field
 
@@ -16,10 +16,10 @@
 - Computing the multiplicative inverse with Fermat’s Little Theorem: a^(p-2) = a^-1
 
 - The addition of multiplicative inverses is consistent with “regular” addition of fractions
-  - With p = 7, 4 and 2 are MI of each other -> 4 is congruent to 1/2 and 2 is congruent to 1/4, if we add 1/2 + 1/2.
-We get 1 <=> 4 + 4 = 8 (mod 7) = 1
+  - With p = 7, 4 and 2 are MI of each other, 4 is congruent to 1/2 (so 4 will "behave" like 1/2), if we add 1/2 + 1/2.
+We get 1 ⇔ 4 + 4 = 8 (mod 7) = 1
 
-- The general way to compute a “fraction” in a finite field is the numerator times the multiplicative inverse of the denominator, modulo p
+- The general way to compute a “fraction” in a finite field is numerator times the multiplicative inverse of the denominator, modulo p
 ```python
 def compute_field_element_from_fraction(num, den, p):
     inv_den = pow(den, -1, p)
