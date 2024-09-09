@@ -1,0 +1,7 @@
+- Witness: is a 1xn vector that contains the values of all input variables, output variable and intermediate values
+- By convention, the first element is always 1 to make the calculation easier
+- Example: if we have the polynomial: out = x^2y, and we claim that we know the solution then we must know all: x, y and out
+    - Rank 1 constraint systems require us to have only 1 multiplication per constraint, so we must rewrite our polynomial as follow:
+    - v = x*x
+    - out = v*y
+    - Our witness is: [1, out, x, y, v]
