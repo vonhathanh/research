@@ -44,3 +44,9 @@
   - Left hand terms are: 3x, v1, 5x, => A[0, 2] = 3, A[1, 4] = 1, A[2, 2] = 5
   - Right hand terms are: x, y, y => B[0, 2] = 1, B[1, 3] = 1, B[2, 3] = 1
   - Output variables are: v1, v2, out - v2 + x + 2y => C[0, 4] = 1, C[1, 5] = 1, C[3] = [-3, 1, 1, 2, 0, -1]
+- R1CS do not require starting with a single polynomial, suppose we are proving that an array of [x1, x2, x3] is binary. The set polynomial constraints are: 
+  - x1 = x1^2
+  - x2 = x2^2
+  - x3 = x3^2
+- Everything is done modulo in R1CS to avoid the burden of dealing with floating point numbers
+- In Circom and many other frameworks, math is done modulo 21888242871839275222246405745257275088548364400416034343698204186575808495617
