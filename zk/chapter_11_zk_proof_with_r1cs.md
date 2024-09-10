@@ -1,0 +1,2 @@
+- Given an n quadratic polynomial constraints, with a total of m variables, we encode our R1CS as: Ls * Rs = Os. L, R, O are matrices with n rows and m columns, s is the solution vector (1xm)
+- ![Ls*Rs=Os](image.png)
