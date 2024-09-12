@@ -12,3 +12,6 @@
   - We could encrypt the s vector by multiplying it by G12 but the points would be too large, so we pair the Os with G1
   and pair each entry with G2. This turns a G1 point into a G12 point
   ![Pairing](image-4.png)
+- Dealing with malicious prover: because both vectors are encrypted, the verifier cannot know if the vector of G1 points encrypt the same values as vector of G2 points
+- Solution: due to bilinear pairing property: e(aG1, bG2) = e(G1, G2)^ab, the verifier can:
+  - Compute e(siG1, G2) == e(G1, siG2) == e(G1, G2)^si.
