@@ -22,4 +22,9 @@ with real coefficients
 - Polynomial as a set: instead of thinking of a polynomial as: y = 2x^3 + x^2 -5, we could think of polynomial as a set of infinite pairs (x, y) where (x, y) satisfies the polynomial equation.
 - In this definition, we don't have degree or coefficients, just a bag of pairs
 - We could add two polynomials as a set using cartesian product
--  
+- Computing the transformation function for the homomorphism
+    - To make a polynomial convey the same infomation as a vector, we decide on n predetermined values of x whose y values will represent the elements of the vector
+    - Theorem: given n points (x, y) on a cartesian plane, they can be uniquely interpolated by a polynomial of degree n-1. If the degree is not constrainted, then there are infinite number of polynomials of degree n-1 or higher can do that
+    - If we are encoding n-dimension vectors as polys, we need n predetermined points. Let's say n = 3, we will pick
+    x = 1, x = 2, x = 3 (this is arbitrary, we could pick 4, 5, 6...). If we are trying to encode 4, 6, 9 then the polynomial must travel through these points: (1, 4), (2, 5), (3, 6).
+    - 
