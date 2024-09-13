@@ -23,8 +23,49 @@ with real coefficients
 - In this definition, we don't have degree or coefficients, just a bag of pairs
 - We could add two polynomials as a set using cartesian product
 - Computing the transformation function for the homomorphism
-    - To make a polynomial convey the same infomation as a vector, we decide on n predetermined values of x whose y values will represent the elements of the vector
-    - Theorem: given n points (x, y) on a cartesian plane, they can be uniquely interpolated by a polynomial of degree n-1. If the degree is not constrainted, then there are infinite number of polynomials of degree n-1 or higher can do that
-    - If we are encoding n-dimension vectors as polys, we need n predetermined points. Let's say n = 3, we will pick
-    x = 1, x = 2, x = 3 (this is arbitrary, we could pick 4, 5, 6...). If we are trying to encode 4, 6, 9 then the polynomial must travel through these points: (1, 4), (2, 5), (3, 6).
-    - 
+  - To make a polynomial convey the same infomation as a vector, we decide on n predetermined values of x whose y values will represent the elements of the vector
+  - Theorem: given n points (x, y) on a cartesian plane, they can be uniquely interpolated by a polynomial of degree n-1. If the degree is not constrainted, 
+   then there are infinite number of polynomials of degree n-1 or higher can do that
+  - If we are encoding n-dimension vectors as polys, we need n predetermined points. Let's say n = 3, we will pick
+  x = 1, x = 2, x = 3 (this is arbitrary, we could pick 4, 5, 6...). 
+  If we are trying to encode 4, 6, 9 then the polynomial must travel through these points: (1, 4), (2, 6), (3, 9).
+- Infinite number of solutions:
+  - Our vector has only 3 elements, but the transformed polynomial has infinite number of points. This is not a problem
+  as long as we only stick to y values at x=1,2,3
+  - There is only one vector that represents 4, 6, 9, but an infinite number of polynomials that interpolate (1, 4), (2, 6), (3, 9).
+  This is not a problem as we only look for those 3 points, nothing more
+- Adding two vectors is homomorphic to adding two polynomials
+- The Hadamard product of two vectors is homomorphic to multiplying two polynomials
+- It is not required for the polynomial representing a constant to be of zero degree
+  - Instead of multiplying the polynomial by s, 
+  we multiply it by a polynomial that interpolates s at the x values we care about
+- When we do matrix mxn multiply nx1 vector, we are just using a shorthand for Hadamard product between each
+  column of the matrix with the vector followed by additions.
+![img_14.png](img_14.png)
+- If Ls*Rs = Os can be with vector arithmetic, it can be done with polynomial arithmetic
+  - Convert all columns in L, R, O to polynomial using lagrange interpolation
+  - Perform scalar multiplication with s and we get the final polynomial
+  - If we have U(x) = transform(L)*s, V(x) = transform(R)*s, W(x) = transform(O)*s, we can prove U(x)*V(x) = W(x)
+  ![img_15.png](img_15.png)
+- Because U, V, W are vectors of polynomials of length m, witness a is of length m too, the correct way to combine them is dot product
+  ![img_16.png](img_16.png)
+- The polynomial on the left usually has twice the degree of the polynomial on the right
+  - We need to add a balance term
+  - We can preserve the equality by introducing a degree (n-1)*2 polynomial 0 that interpolates to zero at x = 1, 2,... n
+  - Ls*Rs = Os + O
+  - If we add a zero vector, we aren’t changing the equality
+- How do we compute this polynomial?
+  - It can be easily represented as the product of two smaller polynomials h(x) and t(x)
+  - We can easily create t(x) using this equation (x-1)(x-2)(x-3)...
+  - t(x) won't be able to balance the term we defined earlier, so we need to multiply it with h(x) 
+  - When two non-zero polynomials are multiplied, 
+  the roots of the product is the union of the roots of the individual polynomials
+  ![img_17.png](img_17.png)
+  - So given U, V, W, a, and t(X), we can derive h(X) doing polynomial division.
+  - Therefore, our final calculation is (U.a)(V.a) = W.a + h(x)t(x)
+- Lastly, we can check if the two polynomials are equal using Schwartz-Zippel lemma
+  - Firstly, we need to encrypt the evaluation point so neither the prover or verifer know about it
+  - To do this, we need a trusted setup as in chapter 14
+  - The prover then computes U.a, V.a, W.a by multiplying those EC points with their polynomial coefficients
+  - [A] = (U.a)(x) = u_d*(x^d) + u_d-1*(x^d-1)...u_0G
+- Couldn’t the prover just invent values?
