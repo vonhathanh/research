@@ -1,0 +1,25 @@
+- A QAP is a system of equations where the coefficients are monovariate polynomials and a valid solution results in a single polynomial equality. 
+- They are quadratic because they have only one polynomial multiplication
+- A program can be represented as an R1CS, but evaluating it is not succinct due to the many operations of matrix multiplication.
+- Due to the Schwartz-Zippel Lemma – in a sense, we can compress a polynomial down to a single point
+- Key ideas behind QAP:
+    - Operations in R1CS form an ring when viewed as a set of vectors
+    - Polynomials under addition and multiplication are rings
+    - There exists an easily computable homomorphism from R1CS to polynomials
+    - Instead of evaluating polynomials by coefficients, we can evaluate them at a random point
+- Lets say we have a transformation poly and a random value t. We do the following:
+    - u = poly(Ls)(t)
+    - v = poly(Rs)(t)
+    - w = poly(Os)(t)
+- if u*v = w, then the two polynomias are the same, as well as Ls*Rs = Os
+- We then turn u, v, w to EC points to hide their value, verifier just need to pairing(A, B) and compare with pairing(C, G12)
+- The goal is prove Ls*Rs = Os using only 3 values
+- We have:
+    - Vectors under addition and hadamard product are rings
+    - Polynomials under addition and multiplition are rings
+- Theorem: there exists a Ring homomorphism from column vectors of dimension n with real number elements to polynomial
+with real coefficients
+- Polynomial as a set: instead of thinking of a polynomial as: y = 2x^3 + x^2 -5, we could think of polynomial as a set of infinite pairs (x, y) where (x, y) satisfies the polynomial equation.
+- In this definition, we don't have degree or coefficients, just a bag of pairs
+- We could add two polynomials as a set using cartesian product
+-  
