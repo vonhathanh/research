@@ -1,5 +1,3 @@
-import unittest
-
 import numpy as np
 from py_ecc.bn128 import multiply, G1
 from scipy.interpolate import lagrange
@@ -12,9 +10,22 @@ from scipy.interpolate import lagrange
 # witness vectors s: [1, out, x_1, x_2, x_3, x_4]
 # Our L, R, O matrices must have 3 rows and 6 columns
 # Apply the left-right hand rule we learned in chapter 10, we got
-# L = [[0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 4]]
-# R = [[0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 0]]
-# O = [[0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1], [2, 1, 0, 0, -1, 0]]
+L = np.array([[0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 4]])
+R = np.array([[0, 0, 1, 0, 0, 0], [0, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 0]])
+O = np.array([[0, 0, 0, 0, 1, 0], [0, 0, 0, 0, 0, 1], [2, 1, 0, 0, -1, 0]])
+
+# test our hypothesis
+x_1 = 3
+x_2 = 4
+
+x_3 = x_1*x_1
+x_4 = x_2*x_2
+out = 4*x_4*x_1 - 2 + x_3
+
+witness = np.array([1, out, x_1, x_2, x_3, x_4])
+
+assert all(np.equal(np.matmul(L, witness) * np.matmul(R, witness), np.matmul(O, witness))), "not equal"
+
 # Next, we transform the columns from vectors to polynomial
 # Start with L, zero vectors turn to zero polynomials, we'll skip doing that here
 # With vector [1, 0, 0], we need a polynomial that travel through (1, 1), (2, 0), (3, 0)
