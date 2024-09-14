@@ -68,4 +68,4 @@ with real coefficients
   - To do this, we need a trusted setup as in chapter 14
   - The prover then computes U.a, V.a, W.a by multiplying those EC points with their polynomial coefficients
   - [A] = (U.a)(x) = u_d*(x^d) + u_d-1*(x^d-1)...u_0G
-- Couldn’t the prover just invent values?
+- Couldn’t the prover just invent values? in our current construction, yes they could randomly pick a, b, c and compute A = aG, B = bG, c = cG and give the verifier A*B = C
