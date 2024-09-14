@@ -1,2 +1,4 @@
 galois==0.4.1
 libnum==1.7.1
+scipy
+py_ecc
