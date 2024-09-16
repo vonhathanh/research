@@ -1,0 +1,13 @@
+- We start with R1CS: Ls*Rs = Os
+  - L, R, O are nxm matrices. n = number of constraints (each constraint is a quadratic multiplication), m = length of the witness vector (s.length)
+- We use the φ transformation operator to convert R1CS to QAP (columns to polynomials)
+  - U(x) = φ(L), V(x) = φ(R), W(x) = φ(R), a = φ(s). They become a vector of m polynomials
+  - U(x) = u_0(x), u_1(x),...,u_m(x) where each u_i(x) is a vector that contains the coefficients of the homomorphic polynomial
+  - Each polynomial has the same degree n-1, since we need n-1 degree polynomial to travel through n points 
+  {x, y where x = {1,...n, y = L[i, 0] for i from 0→n-1}
+  - After transforming L, R, O, s to QAP, our problem becomes: (U*a)(V*a) = W*a  (* is dot product)
+  - U*a is a polynomial because we take the dot product of two vectors of polynomial: 
+  - U*a = {u_1(x), u_2(x)...u_m(x)} * {a_1, a_2,..., a_m} = a_1*u_1(x) + a_2*u_2(x)+...+a_m*u_m(x)
+  - (U*a)(V*a) = W*a is not balanced because degree of (U*a)(V*a) = z will usually > degree of (W*a)
+  - We need to add a balancing term, which is also a polynomial that is evaluated to y = 0 at x = {1, 2, ..., z}
+  - We can derive that polynomial easily using the formula: p(x) = (x-1)(x-2)...(x-z)
