@@ -23,8 +23,9 @@
   - They can compute: [D]_12 = pairing(alpha, beta) + pairing(C, G2)
   - Now they need to split D into A and B, however, they don't know the preimage of D, so they can't
 - Attack 3: Forging [A'], [B'] with [a'G1] and [b'G2] and computing [C']
-  - This time, they managed to make the equation balance, but them problem is: they don't know the value of alpha 
-  and beta, they're just guessing it
+  - The problem with this approach is: after having A', B', they can only get D' = pairing(A', B)
+  - To get C', they can only: pairing(A', B') - pairing(alpha, beta) = C'. 
+  - And C' is a G12 point, they can't calculate C' because it's discrete log problem
 - After shifting A, B by alpha and beta, C becomes this:
 ![img_20.png](img_20.png)
   - Beta will be an EC point after the trusted setup, it' can't be multiplied with the polynomial, so we
