@@ -26,4 +26,3 @@
   - Remember U*a is just a polynomial so we can expand the term to: A = (U*a)(x) = u_d(x^d) + u_(d-1)((x^(d-1)))... + u_0
   = u_d(x^dG) + u_(d-1)((x^(d-1)G))... + u_0G
 - Now it's the hard part, using QAP alone can't prevent prover from forge fake values, so we need groth16 to help us
-- 
