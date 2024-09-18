@@ -6,4 +6,10 @@
 - Velocity = change in distance / change in time = (s(t+x) - s(t)) / dt = ds / dt
 - We want to associate a single point in time with a velocity but actually compute it requires atleast two points in time
 - The speedometer measure how far the car goes in a very small amount of time to has enough information to derive the velocity
-- 
+- In pure math, the derivate is not a specific dt like 0.01, 0.0001
+- ds(t)/dt = (s(t+dt) - s(t)) / dt, it's what ever approaches zero
+- As dt approaches zero, the two points approach each other, the slope the line approach the tangent line of the graph at a single point
+- dt is not infinitely small, not 0, it's just approaches zero
+- derivative is best constant approximation for a rate of change around a point
+- Let say s(t) = t^3, we have ds(t)/dt = ((t + dt)^3 - (t)^3) / dt
+- Expend the term we got: 3t^2 -> this is derivative of s(t) around a point t in time 
