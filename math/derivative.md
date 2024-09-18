@@ -1,0 +1,9 @@
+- Not a instantaneous rate of change but require multiple points in time (at least 2)
+- Let s(t) = distance traveled at t where t is time in seconds
+- let v(t) = velocity at time t
+- What is the relationship between v(t) and s(t)? How does velocity depend on a distance function
+- Velocity at a single momment doen't make sense
+- Velocity = change in distance / change in time = (s(t+x) - s(t)) / dt = ds / dt
+- We want to associate a single point in time with a velocity but actually compute it requires atleast two points in time
+- The speedometer measure how far the car goes in a very small amount of time to has enough information to derive the velocity
+- 
