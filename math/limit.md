@@ -1,0 +1,2 @@
+- Describe the behaviour of a function as its input (usually x) approach close to a specific values (don't have to reach that value)
+- limit(x->a)f(x) = L: as x approaches a, f(x) approaches L
