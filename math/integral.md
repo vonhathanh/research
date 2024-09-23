@@ -1,0 +1,6 @@
+- Given a function v(t) describes the rate of change according to time t (we have an interval for t: 0..n). We want to know how far the object x has traveled at time t.
+- Solution: we got rate of change -> we need to find the function f(t) that f(t)' = v(t). One function is the sum of changes, one func is rate of change. They are coresponding to each other. 
+- Relaxed problem: assume rate of change is constant v(t) = 10 for all t, we can easily findout the traveled amount = 10*time traveled
+- If we let x = v(t)*dt we got the distance traveled at time t (dt is small number like 0.01)
+- Let define s(T) is the area under the curve from 0 to time T. ds = dT*v(T)
+- Why the integral at T is the sum of v(T) in the interval 0->T is because I(T) is the sum of all dT*v(T) over the range 0->T
