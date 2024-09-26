@@ -1,3 +1,2 @@
-- every file is a sequence of bytes
-- programs are translated by other programs into different forms
+
 - 
