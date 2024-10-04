@@ -43,3 +43,12 @@
 ![](image-9.png)
 - Equivalently, the optimal policy can be obtained directly from the optimal Q function
 ![](image-10.png)
+- Bellman equation: compute reward values at the real leaves, using the transition function T_a then compute the value of parent node from the chilren's rewards
+![bellman](image-11.png)
+- A simple DP method to calculate Bellman's equation is Value iteration:
+    - Initialize V(s) to random values
+    - Repeatedly updates Q(s, a) and V(s) until convergence
+    - Convergence is when values of V(s) stop changing much
+    - Works with finite set of actions
+    - Guarantee to converge but not very efficient 
+![Value_iteration](image-12.png)
