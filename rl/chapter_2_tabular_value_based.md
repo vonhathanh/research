@@ -52,3 +52,7 @@
     - Works with finite set of actions
     - Guarantee to converge but not very efficient 
 ![Value_iteration](image-12.png)
+- Normally, we'll in a situation when the transition prob are not known to the agent -> model-free method
+- Moter Carlo sampling: 
+  - Generate a random episode e, loop until we are done or we reach episode length
+  - Use the return g from e to update value function at the visited states
