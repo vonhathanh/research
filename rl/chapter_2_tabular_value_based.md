@@ -56,3 +56,31 @@
 - Moter Carlo sampling: 
   - Generate a random episode e, loop until we are done or we reach episode length
   - Use the return g from e to update value function at the visited states
+- Temporal difference learning (TD): 
+  - The process of subsequent refinement by which old estimates of a value are refined with new updates
+  - The difference in values between two time steps
+  - Update V(s) (the bootstrap-value) with an error value (new minus current) based on the estimate of the next state
+![img.png](img.png)
+- Bias-Variance trade-off: 
+  - Monte Carlo does not use bootstrapping, it performs full episode with random action choices before it uses the reward ->
+  its actions are unbiased, not influenced by previous reward
+  - But it cause high variance of returns between episodes
+  - TD bootstraps the Q-function with the values of the previous steps, it learns at each step -> learn more quickly
+  - This cause old reward values linger around for a long time, biasing the function valye -> low variance
+![img_1.png](img_1.png)
+- This makes us think about a middle ground approach: sample a few n steps (not full episode, n > 1) before using the reward value
+- The goal of RL is to construct the policy with the highest cumulative reward -> find the best action a in each state s
+- Everything is relied on the value function so we call all methods above: value-based method
+- Exploration-exploitation trade-off:
+  - If we keep choosing the highest Q-value, the model learn nothing, it'll just repeat the same action
+- Epsilon-greedy exploration: agent has x% to takes a random action (normally 10%-30%)
+- Off-Policy learning: 
+  - On-policy: agent select action to perform -> get reward from the env -> learning from its most recent action
+  - Learning takes place by using the value of the action that was selected by the POLICY
+  - Off-policy: learning from all available information
+  - Learning takes place by backing up values of another action, not necessarily the one selected by the behavior policy
+  - Make sense when the agent explore, it usually select non-optimal actions during this time
+  - The only diff between on and off-policy is how they act when exploring the non-greedy action
+- Sparse and dense reward:
+  - Dense reward: r exists in every state s
+  - Sparse reward: exists only in some states
