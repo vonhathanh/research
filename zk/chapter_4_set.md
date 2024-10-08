@@ -24,8 +24,8 @@ I would pick (1,3), (2, 6), (3, 9), (4, 12), it encodes y = x*3
 - Subsets of the Cartesian product form a function
 - In set-theoretic terms, a function is a subset of the Cartesian product of the domain and codomain sets
 - For example, with the Cartesian product of AxB before, we can pick any subset like: {(1, y), (2, x), (3, z)}
-- Mathematicians rarely concern with computability (but we as programmer do). A function is just a mapping between sets
-How that function is computed, it not a concert of mathematicians
+- Mathematicians rarely concern with computability (but we as programmer do). A function is just a mapping between sets.
+  How that function is computed, it not a concert of mathematicians
 - Exercise 7: Define a mapping (function) from integers n ∈ 1,2,3,4,5,6 to the set {even, odd}
 ![img_2.png](img_2.png)
 - Excercise 8: ![img_3.png](img_3.png)
@@ -37,8 +37,8 @@ We just need to take the Cartesian product of integer numbers with itself, the r
 - Injective: Elements in the codomain have atmost one preimage. If an elemement doesn't have preimage, it's okay. If two
 or more elements in the domain map to the same element, it's not injective
 - Bijective: a function that is bot surjective and injective
-- Exercise 10: A = {1, 2, 3}, B = {x, y, z}, define f(A) -> B that is not injective and surjective
-Not surjective -> an element in B doesn't have preimage, we choose z to be that element
+- Exercise 10: A = {1, 2, 3}, B = {x, y, z}, define f(A) -> B that is not injective and surjective.
+Not surjective -> an element in B doesn't have preimage, we choose z to be that element.
 Not injective -> two or more elements in the domain map to the same codomain, we choose: (1, x), (2, x)
 So our set/function is: {(1, x), (2, x), (3, y)}
 - Set relation: if we take a subset of AxB then we say an element a from A is related to an element b from B if
@@ -52,7 +52,7 @@ Binary operators must accept all members of group A as its inputs and each pair 
 - Magma: a set with a closed binary operator
 - Semigroup: a magma where the binary operator must be associative (A op B) op C = A op (B op C)
 - Exercise 13: (foo + bar) + baz = foobarbaz = foo + (bar + baz)
-- Exercise 14: example of magma: set of real number under addition, (5 - 4) - 3 != 5 - (3 -2), example of semigroup:
+- Exercise 14: example of magma: set of real number under addition, (5 - 4) - 3 != 5 - (3 - 4), example of semigroup:
 set of natural number under addition
 - Monoid: a semigroup with identity element. Identity element is an element when do the binary operator with another
 element a, you get a: a + I = a. For example, addition over integers is monoid when you include 0
