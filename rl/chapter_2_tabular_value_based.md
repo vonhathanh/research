@@ -26,11 +26,11 @@
 ![policy](image-1.png)
 - Trace t: a sequence of interactions and state changes: t^n_t = {s_t, a_t, r_t, s_t+1,...a_t+n, r_t+n, s_t+n+1}
 - Traces are a single full rollout of a sequence from the sequential decision problem. They are also called trajectory, episode, or sequence
-- We will not always get the same trace because policy U and transition dynamic can be stochastic. We'll get distribution over traces
+- We will not always get the same trace because policy u and transition dynamic can be stochastic. We'll get distribution over traces
 ![distribution_of_traces](image-2.png)
 - Return R: sum of future reward of a trace
 ![return](image-3.png)
-- State value V: we don't care about the return of just one trace, we interested in the expected cumulative reward that a policy can achieve. SWe define V(s) as the return we expect to achieve when an agent starts in state s and then follow policy u as:
+- State value V: we don't care about the return of just one trace, we interested in the expected cumulative reward that a policy can achieve. We define V(s) as the return we expect to achieve when an agent starts in state s and then follow policy u as:
 ![V](image-4.png)
 ![V_example](image-5.png)
 - State-action value Q(s, a) is condition on both state and action, we estimate the average return we expect to achieve when taking action a in state s follow policy u
@@ -66,7 +66,7 @@
   its actions are unbiased, not influenced by previous reward
   - But it cause high variance of returns between episodes
   - TD bootstraps the Q-function with the values of the previous steps, it learns at each step -> learn more quickly
-  - This cause old reward values linger around for a long time, biasing the function valye -> low variance
+  - This cause old reward values linger around for a long time, biasing the function value -> low variance
 ![img_1.png](img_1.png)
 - This makes us think about a middle ground approach: sample a few n steps (not full episode, n > 1) before using the reward value
 - The goal of RL is to construct the policy with the highest cumulative reward -> find the best action a in each state s
