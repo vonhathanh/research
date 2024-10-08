@@ -1,7 +1,7 @@
 - RL is used to solve sequential decision problems - agent has to make a sequence of decision in order to solve a problem
 - The solver is called the agent, the problem is called environment (world), agent seeks to maximize rewards
 ![tabular-value-based](image.png)
-- The goal is to find the optimal policy function r* that determine the best action to take at state s_t
+- The goal is to find the optimal policy function u* that determine the best action to take at state s_t
 - We find u* by trying different actions and accumulate the rewards
 - Reward is similar to label in supervised learning 
 - Markov Decision Process: a 5-tuple (S, A, T_a, R_a, y)
