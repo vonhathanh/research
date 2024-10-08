@@ -25,7 +25,7 @@
 - p(A) can be discrete or continuous prob distribution, for a particular prob (desity) from this distrubution we write u(a|s)
 ![policy](image-1.png)
 - Trace t: a sequence of interactions and state changes: t^n_t = {s_t, a_t, r_t, s_t+1,...a_t+n, r_t+n, s_t+n+1}
-- Traces are a insgle full rollout of a sequence from the sequential decision problem. They are also called trajectory, episode, or sequence
+- Traces are a single full rollout of a sequence from the sequential decision problem. They are also called trajectory, episode, or sequence
 - We will not always get the same trace because policy U and transition dynamic can be stochastic. We'll get distribution over traces
 ![distribution_of_traces](image-2.png)
 - Return R: sum of future reward of a trace
