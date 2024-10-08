@@ -1,4 +1,4 @@
-- Not a instantaneous rate of change but require multiple points in time (at least 2)
+- Not a instantaneous rate of change because it requires multiple points in time (at least 2)
 - Let s(t) = distance traveled at t where t is time in seconds
 - let v(t) = velocity at time t
 - What is the relationship between v(t) and s(t)? How does velocity depend on a distance function
