@@ -2,6 +2,5 @@ galois==0.4.1
 libnum==1.7.1
 scipy
 py_ecc
-gymnasium~=0.29.1
-numpy~=1.26.4
 matplotlib~=3.9.2
+stable_baselines3[extra]
