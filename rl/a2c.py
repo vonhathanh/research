@@ -127,34 +127,6 @@ def a2c(policy: ActorCritic, optimizer, n_training_episodes, max_t, gamma, polic
 
         scores.append(score)
 
-        # n_steps = len(rewards)
-        # disc_return_t = (values[-1] if not done else 0)
-        # policy_loss = []
-        # returns = deque()
-        # for t in range(n_steps)[::-1]:
-        #     disc_return_t = rewards[t] + gamma * disc_return_t
-        #     returns.appendleft(disc_return_t)
-        #
-        # values = torch.tensor(values)
-        # returns = torch.stack(returns).detach()
-        # advantages = returns - values
-        #
-        # dist = Categorical()
-        #
-        # actor_loss = torch.cat(policy_loss).mean()
-        # critic_loss = F.mse_loss(torch.tensor(returns), values)
-        #
-        # total_loss = actor_loss + policy_weight*critic_loss
-        # # Line 8: PyTorch prefers gradient descent
-        # optimizer.zero_grad()
-        #
-        # total_loss.backward()
-        #
-        # # Clip gradients (optional but recommended for stability)
-        # # torch.nn.utils.clip_grad_norm_(policy.parameters(), max_norm=0.5)
-        #
-        # optimizer.step()
-
         if i_episode % print_every == 0:
             print("loss: ", loss)
             print('Episode {}\tAverage Score: {:.2f}'.format(i_episode, np.mean(scores)))
