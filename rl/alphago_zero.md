@@ -28,3 +28,10 @@ where U is the upper confidence bound U(s, a) = P(s, a) / (1 + N(s, a)) until a 
   - In parallel, new net param theta_i are trained from (s, pi, z) sampled uniformly from all time-steps
   of the last iteration (s)
   - the new net i is adjusted to minimize error between v and winnder z, maximize the similarity of p and pi
+
+- Role of MCTS: if we just use plain neural nets then the model is likely to stuck in local minima.
+  - MCTS helps model explore different strategies in order to outplay itself
+- This is a kind of curriculum learning
+- Two main components
+  - Self-play to generate training data
+  - If we 
