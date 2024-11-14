@@ -6,7 +6,7 @@
 - Array: pop() doesnt return the removed item
 - delete array[i] can't delete array element (can set it to 0, array's length is the same)
 - We must use pop() swap in order to remove an element
-- Private func and variables can't be seen in child contract while interal fn can
+- Private func and variables can't be seen in child contract while intenal fn can
 - Internal functions do not have a function selector
 - function selector make transaction smaller instead of using full func name
 - fallback fn doesn't have fn selector
