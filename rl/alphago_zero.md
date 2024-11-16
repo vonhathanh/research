@@ -1,0 +1,37 @@
+- trained soly by self-play RL, no supervision, human data
+- uses only the black and white stones from the board as input features
+- uses a single neural network for both policy and value estimation
+- MCTS that relies upon the neural net to evaluate poistions and sample moves but without Monte Carlo rollout
+- neural net f() output (p, v), p is a vector of probabilities of selecting each move a, p_a = pr(a|s)
+- v is the estimate value of winning probability
+- neural net consist of residual blocks of convolutional layers and batch norm and relu
+- in each position s, a MCTS search is executed, guided by the net f()
+- MCTS output probabilities pi of playing each move, pi usually stronger than p
+- MCTS can be viewed as policy improvement operator
+- After MCTS, we use the winner z as a sample of value
+- Main idea is to use MCTS repeatedly in policy iteration
+- The net f() is then update it's parameters to make the move p and value v closely match the improved pi and winner z
+- use the new net f() in the next iteration of self-play to make the search stronger
+- each edge (s, a) in the tree stores a prior probability P(s, a), visit count N(s, a) and action value Q(s, a)
+- each simulation starts from the root state and select moves that maximize Q(s, a) + U(s, a)
+where U is the upper confidence bound U(s, a) = P(s, a) / (1 + N(s, a)) until a leaf node is encountered
+- this leaf node is expanded and evaluated only once by the net f()
+- Each edge (s, a) traversed in the sim is updated to increase visit count N(s,a) and Q(s, a) = 1/N(s,a)sumV(s')
+- training
+  - init f() params randomly
+  - generate games of self-play
+  - at each time-step t, do MCTS search to get pi_t
+  - sample a move using pi_t
+  - game stops at T or some conditions are met
+  - the game is then scored to give a final reward r in{-1, 1}
+  - data for each time-step t is stored as (s_t, pi_t, z_t), z_t = +-r depend on the winnder
+  - In parallel, new net param theta_i are trained from (s, pi, z) sampled uniformly from all time-steps
+  of the last iteration (s)
+  - the new net i is adjusted to minimize error between v and winnder z, maximize the similarity of p and pi
+
+- Role of MCTS: if we just use plain neural nets then the model is likely to stuck in local minima.
+  - MCTS helps model explore different strategies in order to outplay itself
+- This is a kind of curriculum learning
+- Two main components
+  - Self-play to generate training data
+  - If we 

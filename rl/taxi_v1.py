@@ -3,6 +3,12 @@ import numpy as np
 
 
 def iterate_value_function(v_inp, gamma, env):
+    # v_inp is only used to get v[dst_state]
+    # v_inp will be overriden by ret after th function end
+    # we can assume at the first iteration, only 1->10% states of v have correct estimated value
+    # if some rewards is positive -> some cells in ret will have positive value
+    # these positive values only increase, because we set ret[sid] = max(tempv)
+    # this is true because reward is fixed at every state
     ret = np.zeros(env.observation_space.n)
     for sid in range(env.observation_space.n):
         temp_v = np.zeros(env.action_space.n)
